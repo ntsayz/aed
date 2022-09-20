@@ -19,22 +19,39 @@ bool FunWithCycles::palindrome(const std::string & s) {
 // Exercicio 2: Frases Palindromo
 // ----------------------------------------------------------
 // TODO
+
+
 bool FunWithCycles::palindromeSentence(const std::string & s) {
-    return false;
+    std::string s1 = "";
+    for(int i = 0 ; i < s.size(); i++){
+        if(!isalpha(s[i])) continue;
+        s1+= tolower(s[i]);
+    }
+    return palindrome(s1);
 }
+
 
 // ----------------------------------------------------------
 // Exercicio 3: Numeros Interessantes
 // ----------------------------------------------------------
 // TODO
 int FunWithCycles::nextInterestingNumber(int n, int sum) {
+    for(int i = n+1; i < 1000000000; i++){
+        if (digitSum(i) == sum) return i;
+    }
     return 0;
 }
 
 // Esta funcao auxiliar devera devolver a soma dos digitos de n
 // TODO
 int FunWithCycles::digitSum(int n) {
-    return 0;
+    if(n <=0) return n;
+    int sum = 0;
+    while(n !=0){
+        sum += n%10;
+        n = n/10;
+    }
+    return sum;
 }
 
 // ----------------------------------------------------------

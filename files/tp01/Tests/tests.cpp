@@ -10,7 +10,7 @@ using testing::Eq;
 // ----------------------------------------------------------
 // Exercicio 1: Palíndromos
 // ----------------------------------------------------------
-
+/*
 TEST(test_1, examples) {
     cout << "Testando 'palindrome'" << endl;
 
@@ -38,7 +38,7 @@ TEST(test_1, other_false) {
     EXPECT_FALSE(FunWithCycles::palindrome("abcdeffdecba"));
     EXPECT_FALSE(FunWithCycles::palindrome("racear"));
 }
-
+*/
 // ----------------------------------------------------------
 // Exercicio 2: Frases Palindromo
 // ----------------------------------------------------------
@@ -74,7 +74,7 @@ TEST(test_2, other_false) {
 // Exercicio 3: Numeros interessantes
 // ----------------------------------------------------------
 
-/*
+
 TEST(test_3, examples) {
     cout << "Testando 'nextInterestingNumber'" << endl;
 
@@ -90,7 +90,7 @@ TEST(test_3, other) {
     EXPECT_EQ(8705, FunWithCycles::nextInterestingNumber(8660, 20));
     EXPECT_EQ(4300001, FunWithCycles::nextInterestingNumber(4253816, 8));
 }
-*/
+
 
 // ----------------------------------------------------------
 // Exercicio 4: O Inverno esta a chegar
