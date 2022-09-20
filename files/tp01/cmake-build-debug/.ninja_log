@@ -1,0 +1,11 @@
+# ninja log v5
+0	298	1663682022402323149	CMakeFiles/aed2223_p01.dir/Tests/funWithCycles.cpp.o	77382aceff7cdb9d
+0	642	1663682022746325749	CMakeFiles/aed2223_p01.dir/main.cpp.o	5659adaf9e5185e7
+0	658	1663682022758325839	lib/googletest-master/googletest/CMakeFiles/gtest_main.dir/src/gtest_main.cc.o	70a63f82d5cf8d07
+0	915	1663682023018327804	CMakeFiles/aed2223_p01.dir/Tests/tests.cpp.o	77e47da8056dfc47
+0	3138	1663682025238344485	lib/googletest-master/googletest/CMakeFiles/gtest.dir/src/gtest-all.cc.o	ecd5574f94e842c3
+3139	3172	1663682025274344756	lib/libgtestd.a	5f45f259dd1a7e0b
+3173	3185	1663682025282344815	lib/libgtest_maind.a	339fa3707b0eee91
+3185	3294	1663682025394345652	../Tests/aed2223_p01	ee0f9f45da543758
+112	5018	1663683028030441869	CMakeFiles/aed2223_p01.dir/Tests/funWithCycles.cpp.o	77382aceff7cdb9d
+5018	7091	1663683030106433941	../Tests/aed2223_p01	ee0f9f45da543758
