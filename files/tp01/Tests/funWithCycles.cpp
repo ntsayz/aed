@@ -58,8 +58,21 @@ int FunWithCycles::digitSum(int n) {
 // Exercicio 4: O Inverno esta a chegar
 // ----------------------------------------------------------
 // TODO
-int FunWithCycles::winter(const vector<int> & v) {
-    return 0;
+int FunWithCycles::winter(const vector<int>& v) {
+    std::vector<int> diff;
+    for(int i =0 ; i < v.size()-1 ; i++){
+        diff.push_back(v[i+1] - v[i]);
+    }
+    int c =0, max = 0;
+    for(int i = 0; i < diff.size(); i++){
+        if(diff[i] < 0){
+            c++;
+            if(c >= max ) max = c;
+        }else{
+            c = 0;
+        }
+    }
+    return max;
 }
 
 

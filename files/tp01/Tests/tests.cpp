@@ -74,7 +74,7 @@ TEST(test_2, other_false) {
 // Exercicio 3: Numeros interessantes
 // ----------------------------------------------------------
 
-
+/*
 TEST(test_3, examples) {
     cout << "Testando 'nextInterestingNumber'" << endl;
 
@@ -90,13 +90,13 @@ TEST(test_3, other) {
     EXPECT_EQ(8705, FunWithCycles::nextInterestingNumber(8660, 20));
     EXPECT_EQ(4300001, FunWithCycles::nextInterestingNumber(4253816, 8));
 }
-
+*/
 
 // ----------------------------------------------------------
 // Exercicio 4: O Inverno esta a chegar
 // ----------------------------------------------------------
 
-/*
+
 TEST(test_4, examples) {
     cout << "Testando 'winter'" << endl;
 
@@ -114,7 +114,7 @@ TEST(test_4, others) {
     EXPECT_EQ(1, FunWithCycles::winter({1,10,2,9,3,7,4,6,5}));
     EXPECT_EQ(6, FunWithCycles::winter({30,35,30,31,28,25,15,20,15,18,15,13,12,10,5,3,7}));
 }
-*/
+
 
 // ----------------------------------------------------------
 // Exercicio 5: Brincando com vectores
