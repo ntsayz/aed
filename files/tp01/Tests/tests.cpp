@@ -96,6 +96,7 @@ TEST(test_3, other) {
 // Exercicio 4: O Inverno esta a chegar
 // ----------------------------------------------------------
 
+/*
 
 TEST(test_4, examples) {
     cout << "Testando 'winter'" << endl;
@@ -115,12 +116,12 @@ TEST(test_4, others) {
     EXPECT_EQ(6, FunWithCycles::winter({30,35,30,31,28,25,15,20,15,18,15,13,12,10,5,3,7}));
 }
 
-
+*/
 // ----------------------------------------------------------
 // Exercicio 5: Brincando com vectores
 // ----------------------------------------------------------
 
-/*
+
 // ------------------------------
 // a) count
 TEST(test_5, count_examples) {
@@ -133,6 +134,7 @@ TEST(test_5, count_examples) {
     EXPECT_EQ(0, FunWithCycles::count({1,2,3,2,6,1,2,2},4));
 }
 
+/*
 TEST(test_5, count_other) {
     cout << "  . Outros casos" << endl;
     EXPECT_EQ(2, FunWithCycles::count({17,10,15,15,10,13,14,19,11,14,12,11,19,18,20,14,17,17}, 15));
