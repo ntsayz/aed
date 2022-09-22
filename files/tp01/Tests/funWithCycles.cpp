@@ -2,7 +2,7 @@
 // Pedro Ribeiro (DCC/FCUP) [ultimo update: 18/09/2022]
 
 #include "funWithCycles.h"
-
+#include <map>
 // ----------------------------------------------------------
 // Exercicio 1: Palindromos
 // ----------------------------------------------------------
@@ -83,12 +83,26 @@ int FunWithCycles::winter(const vector<int>& v) {
 // a) count
 // TODO
 int FunWithCycles::count(const vector<int> & v, int n) {
-    return 0;
+    int count = 0;
+    for(int i = 0 ; i < v.size() ; i++){
+        if(v[i] == n) count++;
+    }
+    return count;
 }
 
 // b) hasDuplicates
 // TODO
 bool FunWithCycles::hasDuplicates(const vector<int> & v) {
+    std::map<int,int> m;
+    for(int i = 0; i < v.size(); i++){
+        m[v[i]] = 0;
+    }
+    for(int i = 0; i < v.size(); i++){
+        m[v[i]] += 1;
+        if()
+    }
+
+
     return false;
 }
 
