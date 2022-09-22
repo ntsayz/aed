@@ -99,17 +99,27 @@ bool FunWithCycles::hasDuplicates(const vector<int> & v) {
     }
     for(int i = 0; i < v.size(); i++){
         m[v[i]] += 1;
-        //if()
+        if(m[v[i]] >= 2) return true;
     }
-
-
     return false;
 }
 
 // c) removeDuplicates
 // TODO
 void FunWithCycles::removeDuplicates(vector<int> & v) {
-
+    std::map<int,int> m;
+    std::vector<int> indexes;
+    for(int i = 0; i < v.size(); i++){
+        m[v[i]] = 0;
+    }
+    for(int i = 0; i < v.size(); i++){
+        m[v[i]] += 1;
+        if(m[v[i]] >= 2) indexes.push_back(i);
+    }
+    int n = 0;
+    for(int i = 0; i < v.size() -n ; i++){
+        v.erase(v.begin()+ indexes[i]);
+    }
 }
 
 // d) merge

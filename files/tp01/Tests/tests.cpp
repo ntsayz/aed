@@ -121,7 +121,7 @@ TEST(test_4, others) {
 // Exercicio 5: Brincando com vectores
 // ----------------------------------------------------------
 
-
+/*
 // ------------------------------
 // a) count
 TEST(test_5, count_examples) {
@@ -134,7 +134,7 @@ TEST(test_5, count_examples) {
     EXPECT_EQ(0, FunWithCycles::count({1,2,3,2,6,1,2,2},4));
 }
 
-/*
+
 TEST(test_5, count_other) {
     cout << "  . Outros casos" << endl;
     EXPECT_EQ(2, FunWithCycles::count({17,10,15,15,10,13,14,19,11,14,12,11,19,18,20,14,17,17}, 15));
@@ -174,7 +174,7 @@ TEST(test_5, hasDuplicates_other_false) {
 }
 */
 
-/*
+
 // ------------------------------
 // c) removeDuplicates
 TEST(test_5, removeDuplicates_examples) {
@@ -205,7 +205,7 @@ TEST(test_5, removeDuplicates_other) {
     vector<int> answer3 = {17,10,15,13,14,19,11,12,18,20};
     EXPECT_EQ(v3, answer3);
 }
-*/
+
 
 /*
 // ------------------------------
