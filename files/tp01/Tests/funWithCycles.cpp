@@ -3,6 +3,7 @@
 
 #include "funWithCycles.h"
 #include <map>
+#include <algorithm>
 // ----------------------------------------------------------
 // Exercicio 1: Palindromos
 // ----------------------------------------------------------
@@ -106,26 +107,26 @@ bool FunWithCycles::hasDuplicates(const vector<int> & v) {
 
 // c) removeDuplicates
 // TODO
+
 void FunWithCycles::removeDuplicates(vector<int> & v) {
-    std::map<int,int> m;
-    std::vector<int> indexes;
-    for(int i = 0; i < v.size(); i++){
-        m[v[i]] = 0;
+    auto end = v.end();
+    for (auto it = v.begin(); it != end; ++it) {
+        end = std::remove(it + 1, end, *it);
     }
-    for(int i = 0; i < v.size(); i++){
-        m[v[i]] += 1;
-        if(m[v[i]] >= 2) indexes.push_back(i);
-    }
-    int n = 0;
-    for(int i = 0; i < v.size() -n ; i++){
-        v.erase(v.begin()+ indexes[i]);
-    }
+    v.erase(end, v.end());
 }
+
+
 
 // d) merge
 // TODO
 vector<int> FunWithCycles::merge(const vector<int> & v1, const vector<int> & v2) {
     vector<int> ans;
+    int max = v1.size();
+    if(max < v2.size()) max = v2.size();
+    ans = v1;
+    ans.insert( ans.end(), v2.begin(), v2.end() );
+    sort(ans.begin(), ans.end());
     return ans;
 }
 
@@ -136,7 +137,10 @@ vector<int> FunWithCycles::merge(const vector<int> & v1, const vector<int> & v2)
 // a) isPrime
 // TODO
 bool FunWithCycles::isPrime(int n) {
-    return false;
+    for(int i = 2; i <= sqrt(n); i++ ){
+        if(n%i == 0) return false;
+    }
+    return true;
 }
 
 // b) factorize
@@ -159,5 +163,6 @@ vector<int> FunWithCycles::listPrimes(int n) {
 // ----------------------------------------------------------
 // TODO
 long long FunWithCycles::fastNextInterestingNumber(long long n, int sum) {
+
     return 0;
 }

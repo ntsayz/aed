@@ -174,7 +174,7 @@ TEST(test_5, hasDuplicates_other_false) {
 }
 */
 
-
+/*
 // ------------------------------
 // c) removeDuplicates
 TEST(test_5, removeDuplicates_examples) {
@@ -206,7 +206,7 @@ TEST(test_5, removeDuplicates_other) {
     EXPECT_EQ(v3, answer3);
 }
 
-
+*/
 /*
 // ------------------------------
 // d) merge
@@ -218,7 +218,8 @@ TEST(test_5, merge_examples) {
     vector<int> answer = {1, 2, 3, 5, 5, 6, 7};
     EXPECT_EQ(v, answer);
 }
-
+ */
+/*
 TEST(test_5, merge_other) {
     cout << "  . Outros casos" << endl;
 
@@ -240,14 +241,14 @@ TEST(test_5, merge_other) {
     vector<int> answer4 = {10,10,11,11,11,12,12,12,13,13,13,13,14,14,14,15,15,15,16,18};
     EXPECT_EQ(v4, answer4);
 }
-*/
 
+*/
 
 // ----------------------------------------------------------
 // Exercicio 6: Brincando com numeros primos
 // ----------------------------------------------------------
 
-/*
+
 // ------------------------------
 // a) isPrime
 TEST(test_6, isPrime_examples) {
@@ -275,7 +276,7 @@ TEST(test_6, isPrime_other_false) {
     EXPECT_FALSE(FunWithCycles::isPrime(1915));
     EXPECT_FALSE(FunWithCycles::isPrime(2279));
 }
-*/
+
 
 /*
 // ------------------------------
