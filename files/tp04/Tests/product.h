@@ -13,5 +13,6 @@ public:
     string getId() const;
     float getPrice() const;
     float getWeight() const;
+    void operator=(const Product prod);
 };
 #endif
