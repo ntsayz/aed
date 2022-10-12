@@ -13,3 +13,8 @@ float Product::getPrice() const {
 float Product::getWeight() const {
     return weight;
 }
+void Product::operator=(const Product prod){
+    id = prod.getId();
+    price = prod.getPrice();
+    weight = prod.getWeight();
+}

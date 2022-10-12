@@ -1,22 +1,60 @@
-Compiling the C compiler identification source file "CMakeCCompilerId.c" failed.
-Compiler: /Library/Developer/CommandLineTools/usr/bin/cc 
-Build flags: 
-Id flags:  
+Performing C SOURCE FILE Test CMAKE_HAVE_LIBC_PTHREAD failed with the following output:
+Change Dir: /home/ntsayz/Documents/aed/files/tp03/cmake-build-debug/CMakeFiles/CMakeTmp
 
-The output was:
-1
-ld: library not found for -lSystem
-clang: error: linker command failed with exit code 1 (use -v to see invocation)
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_100ae/fast && /usr/bin/make  -f CMakeFiles/cmTC_100ae.dir/build.make CMakeFiles/cmTC_100ae.dir/build
+make[1]: Entering directory '/home/ntsayz/Documents/aed/files/tp03/cmake-build-debug/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_100ae.dir/src.c.o
+/usr/bin/cc -DCMAKE_HAVE_LIBC_PTHREAD   -o CMakeFiles/cmTC_100ae.dir/src.c.o -c /home/ntsayz/Documents/aed/files/tp03/cmake-build-debug/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTC_100ae
+/snap/clion/206/bin/cmake/linux/bin/cmake -E cmake_link_script CMakeFiles/cmTC_100ae.dir/link.txt --verbose=1
+/usr/bin/cc CMakeFiles/cmTC_100ae.dir/src.c.o -o cmTC_100ae 
+/usr/bin/ld: CMakeFiles/cmTC_100ae.dir/src.c.o: in function `main':
+src.c:(.text+0x46): undefined reference to `pthread_create'
+/usr/bin/ld: src.c:(.text+0x52): undefined reference to `pthread_detach'
+/usr/bin/ld: src.c:(.text+0x5e): undefined reference to `pthread_cancel'
+/usr/bin/ld: src.c:(.text+0x6f): undefined reference to `pthread_join'
+collect2: error: ld returned 1 exit status
+make[1]: *** [CMakeFiles/cmTC_100ae.dir/build.make:99: cmTC_100ae] Error 1
+make[1]: Leaving directory '/home/ntsayz/Documents/aed/files/tp03/cmake-build-debug/CMakeFiles/CMakeTmp'
+make: *** [Makefile:127: cmTC_100ae/fast] Error 2
 
 
-Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" failed.
-Compiler: /Library/Developer/CommandLineTools/usr/bin/c++ 
-Build flags: 
-Id flags:  
+Source file was:
+#include <pthread.h>
 
-The output was:
-1
-ld: library not found for -lc++
-clang: error: linker command failed with exit code 1 (use -v to see invocation)
+static void* test_func(void* data)
+{
+  return data;
+}
+
+int main(void)
+{
+  pthread_t thread;
+  pthread_create(&thread, NULL, test_func, NULL);
+  pthread_detach(thread);
+  pthread_cancel(thread);
+  pthread_join(thread, NULL);
+  pthread_atfork(NULL, NULL, NULL);
+  pthread_exit(NULL);
+
+  return 0;
+}
+
+Determining if the function pthread_create exists in the pthreads failed with the following output:
+Change Dir: /home/ntsayz/Documents/aed/files/tp03/cmake-build-debug/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_cd7f1/fast && /usr/bin/make  -f CMakeFiles/cmTC_cd7f1.dir/build.make CMakeFiles/cmTC_cd7f1.dir/build
+make[1]: Entering directory '/home/ntsayz/Documents/aed/files/tp03/cmake-build-debug/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_cd7f1.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create -o CMakeFiles/cmTC_cd7f1.dir/CheckFunctionExists.c.o -c /snap/clion/206/bin/cmake/linux/share/cmake-3.23/Modules/CheckFunctionExists.c
+Linking C executable cmTC_cd7f1
+/snap/clion/206/bin/cmake/linux/bin/cmake -E cmake_link_script CMakeFiles/cmTC_cd7f1.dir/link.txt --verbose=1
+/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=pthread_create CMakeFiles/cmTC_cd7f1.dir/CheckFunctionExists.c.o -o cmTC_cd7f1  -lpthreads 
+/usr/bin/ld: cannot find -lpthreads
+collect2: error: ld returned 1 exit status
+make[1]: *** [CMakeFiles/cmTC_cd7f1.dir/build.make:99: cmTC_cd7f1] Error 1
+make[1]: Leaving directory '/home/ntsayz/Documents/aed/files/tp03/cmake-build-debug/CMakeFiles/CMakeTmp'
+make: *** [Makefile:127: cmTC_cd7f1/fast] Error 2
+
 
 
