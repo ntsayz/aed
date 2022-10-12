@@ -1,0 +1,1 @@
+/usr/bin/c++ -g CMakeFiles/aed.dir/main.cpp.o -o aed 
