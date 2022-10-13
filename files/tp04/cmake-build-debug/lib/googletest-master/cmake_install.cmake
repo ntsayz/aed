@@ -1,4 +1,4 @@
-# Install script for directory: /home/ntsayz/Documents/aed/files/tp04/lib/googletest-master
+# Install script for directory: /home/ntsayz/Downloads/aed2223_p04/lib/googletest-master
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -44,7 +44,7 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("/home/ntsayz/Documents/aed/files/tp04/cmake-build-debug/lib/googletest-master/googlemock/cmake_install.cmake")
+  include("/home/ntsayz/Downloads/aed2223_p04/cmake-build-debug/lib/googletest-master/googlemock/cmake_install.cmake")
 
 endif()
 

@@ -22,11 +22,15 @@ void sortByPrice(vector<Product> &products){
 // TODO
 void FunSortProblem::expressLane(vector<Product> &products, unsigned k) {
     sortByPrice(products);
+    int i = 0;
 
-    for(int i = 0 ; i < products.size(); i++){
-        if(products[i].getPrice() ==  <)
+    while( i < products.size()){
+        if(products[i].getPrice() == products[i+1].getPrice()){
+            if(products[i].getWeight() < products[i+1].getWeight()) products.erase(products.begin()+ i +1);
+            else products.erase(products.begin() + i );
+        }
+        i++;
     }
-
 }
 
 

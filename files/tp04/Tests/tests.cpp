@@ -45,6 +45,7 @@ TEST(test, expressLane){
     EXPECT_EQ(0,products.size());
 }
 
+
 TEST(test, minDifference){
     EXPECT_EQ(6,FunSortProblem::minDifference({3,4,1,9,56,7,9,12}, 5));
     EXPECT_EQ(-1,FunSortProblem::minDifference({3,4,1,9,56,7}, 7));
