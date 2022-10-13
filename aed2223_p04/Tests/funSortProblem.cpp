@@ -10,8 +10,7 @@ FunSortProblem::FunSortProblem() {}
 // TODO
 void sortByPrice(vector<Product> &products){
     int i , key, j;
-
-    for(i = 0 ; i < products.size(); i++){
+    for(i = 1 ; i < products.size(); i++){
         key = products[i].getPrice();
         Product prod = products[i];
         j = i-1;
@@ -49,7 +48,30 @@ int FunSortProblem::minDifference(const vector<unsigned> &values, unsigned nc) {
 
 // TODO
 unsigned FunSortProblem::minPlatforms (const vector<float> &arrival, const vector<float> &departure) {
-    return 0;
+    int len = arrival.size();
+    unsigned usedPlatforms = 1;
+    unsigned final = 1;
+    int a = 1;
+    int d = 0;
+    vector<float> order_A = arrival;
+    vector<float> order_D = departure;
+    sort(order_A.begin(), order_A.end());
+    sort(order_D.begin(), order_D.end());
+
+    while (a < len && d < len) {
+        if (order_A[a] <= order_D[d]) {
+            usedPlatforms += 1;
+            a++;
+        } else if (order_A[a] > order_D[d]) {
+            usedPlatforms -= 1;
+            d++;
+        }
+
+        if (usedPlatforms > final) {
+            final = usedPlatforms;
+        }
+    }
+    return final;
 }
 
 //TODO
