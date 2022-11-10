@@ -5,7 +5,7 @@
 #include "piece.h"
 
 using testing::Eq;
-
+/*
 TEST(test, expressLane){
     Product p1("pastaX1",3.2,500);
     Product p2("peanutsYY",5.4,700 );
@@ -43,8 +43,8 @@ TEST(test, expressLane){
     products = {};
     FunSortProblem::expressLane(products,2);
     EXPECT_EQ(0,products.size());
-}
-/*
+}*/
+
 TEST(test, minDifference){
     EXPECT_EQ(6,FunSortProblem::minDifference({3,4,1,9,56,7,9,12}, 5));
     EXPECT_EQ(-1,FunSortProblem::minDifference({3,4,1,9,56,7}, 7));
@@ -58,7 +58,7 @@ TEST(test, minPlatforms){
     EXPECT_EQ(3,FunSortProblem::minPlatforms({2.00, 2.10, 3.00, 3.20, 3.50, 5.00 }, { 2.30, 3.40, 3.20, 4.30, 4.00, 5.20 }));
 }
 
-
+/*
 TEST(test, numInversions){
     vector<int> v1 = {10,50,20,40,30};
     EXPECT_EQ(4,FunSortProblem::numInversions(v1));
