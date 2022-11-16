@@ -1,5 +1,6 @@
 #include "Bookstore.h"
 
+#include <bits/stdc++.h>
 Bookstore::Bookstore() : catalog(BookCatalogItem("", "", 0)) {}
 
 void Bookstore::generateCatalog(vector<Book *> inventory) {
@@ -16,16 +17,25 @@ BST<BookCatalogItem> Bookstore::getCatalog() const {
 
 //=============================================================================
 //TODO:
+
+bool cmpBooks(Book* &b1, Book* &b2){
+    if(b1->getYear() > b2->getYear()){
+        return true;
+    }
+    if(b1->getYear() < b2->getYear()){
+        return false;
+    }
+    return b1->getTitle() < b2->getTitle();
+    
+}
 vector<Book *> Bookstore::getBooksBy(string a) const {
-    vector<Book *> result;
-    /*edd
-     * ue procura no catálogo da galeria (dado-membro catalog) todos os livros do autor a, independentemente
-do seu título e ano de publicação, retornando-os num vetor. Este deve estar ordenado por ordem
-decrescente de ano de publicação do livro e, em caso de igualdade, por ordem alfabética de título do
-livro. Caso não se encontrem quaisquer livros do autor, o vetor retornado pela função estará vazio*/
-    auto it = catalog.begin();
-    while(it != catalog.end()){
-        it++;
+    vector<Book*> result;
+    BSTItrIn<BookCatalogItem> it(catalog);
+    while(!it.isAtEnd()){
+        if(it.retrieve().getAuthor() == a){
+            result.push_back(it.retrieve().getBook());
+        }
+        it.advance();
     }
     return result;
 }
@@ -33,5 +43,13 @@ livro. Caso não se encontrem quaisquer livros do autor, o vetor retornado pela 
 //TODO:
 vector<Book *> Bookstore::getBooksBetween(unsigned y1, unsigned y2) const {
     vector<Book *> result;
+    BSTItrIn<BookCatalogItem> it(catalog);
+    while(!it.isAtEnd()){
+        if(it.retrieve().getYear() >= y1 && it.retrieve().getYear() <= y2){
+            result.push_back(it.retrieve().getBook());
+        }
+        it.advance();
+    }
+
     return result;
 }

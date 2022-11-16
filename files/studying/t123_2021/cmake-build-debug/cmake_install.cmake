@@ -1,4 +1,4 @@
-# Install script for directory: /home/ntsayz/Documents/aed/files/studying
+# Install script for directory: /home/ntsayz/Documents/aed/files/studying/t123_2021
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -44,7 +44,7 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("/home/ntsayz/Documents/aed/files/studying/cmake-build-debug/lib/googletest-master/cmake_install.cmake")
+  include("/home/ntsayz/Documents/aed/files/studying/t123_2021/cmake-build-debug/lib/googletest-master/cmake_install.cmake")
 
 endif()
 
@@ -56,5 +56,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/ntsayz/Documents/aed/files/studying/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/ntsayz/Documents/aed/files/studying/t123_2021/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

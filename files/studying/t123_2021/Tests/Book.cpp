@@ -58,5 +58,11 @@ ostream &operator<<(ostream &os, const BookCatalogItem &b) {
 //=============================================================================
 //TODO:
 bool BookCatalogItem::operator<(const BookCatalogItem &bci1) const {
-    return true;
+    if(this->getYear() > bci1.getYear()){
+        return true;
+    }
+    if(this->getYear() < bci1.getYear()){
+        return false;
+    }
+    return this->getTitle() < bci1.getTitle();
 }

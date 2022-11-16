@@ -22,7 +22,7 @@ void Warehouse::setOrders(list<stack<Order *> > so) {
 
 //=============================================================================
 //TODO:
-
+/*
 void Warehouse::sortPackers() {
     auto last = packers.end();
     last--;
@@ -44,8 +44,36 @@ void Warehouse::sortPackers() {
 
         }
     }
+    que ordena a lista de trabalhadores (packers) por ordem decrescente de volume de encomendas na sua
+bancada (número de encomendas em myOrderQueue). Em caso de igualdade, a ordenação é realizada por
+ordem alfabética do nome do trabalhador (namePacker) e, em caso de nova igualdade, a ordenação é
+realizada por ordem crescente do código de identificação do trabalhador (idPacker)
 
+
+
+}*/
+
+bool comparePackers(const Packer &p1,const Packer &p2 ){
+    //decrescente
+    if( p1.getOrderQueue().size() > p2.getOrderQueue().size()){
+        return true;
+    }
+    if( p1.getOrderQueue().size() < p2.getOrderQueue().size()){
+        return false;
+    }
+    //alfabetica
+    if( p1.getNamePacker() < p2.getNamePacker()){
+        return true;
+    }
+    if( p1.getNamePacker() > p2.getNamePacker()){
+        return false;
+    }
+    return p1.getIdPacker() < p2.getIdPacker();
 }
+void Warehouse::sortPackers() {
+    packers.sort(comparePackers);
+}
+
 
 
 //TODO:
@@ -76,27 +104,24 @@ void Warehouse::addPacker(unsigned idPacker, string namePacker) {
 
 //TODO:
 bool Warehouse::addToShorterQueue(Order* o) {
-    if(packers.size() == 0) return false;
-    int min = INT32_MAX, i = 0, num, another;
+    if(packers.empty()) return false;
+    int pos;
+    int min  = (int)packers.begin()->getOrderQueue().size();
+    bool equal = false;
     for(auto it = packers.begin(); it != packers.end(); it++){
-        if(it->getOrderQueue().size() < min){
-            num = i;
-        }else if(it->getOrderQueue().size() == min){
-            another = 1;
+        if(it->getOrderQueue().size() <= min){
+            min = (int)it->getOrderQueue().size();
+            pos = (int)distance(packers.begin(),it);
+            if(it->getOrderQueue().size() == min) equal = true;
         }
-        i++;
     }
-    i = 0;
+    if(equal){packers.begin()->addOrder(o);return true;}
+
     for(auto it = packers.begin(); it != packers.end(); it++){
-        if(another == 1){
-            packers.front().addOrder(o);
-            return true;
-        }
-        if(i == num){
+        if(distance(packers.begin(),it) == pos){
             it->addOrder(o);
             return true;
         }
-        i++;
     }
 }
 
