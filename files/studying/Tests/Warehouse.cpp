@@ -107,7 +107,7 @@ unsigned Warehouse::processOrderByDeliveryType(string deliveryType, unsigned n) 
     stack<Order*> selected;
     auto itr=processedOrders.begin();
     for( auto it = processedOrders.begin(); it!= processedOrders.end(); it++){
-        if (it->top()->getDeliveryType()==deliveryType){
+        if ((*it).top()->getDeliveryType()==deliveryType){
             selected= *it;
             itr=it;
             break;
