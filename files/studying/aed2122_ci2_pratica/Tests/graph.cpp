@@ -82,6 +82,11 @@ void Graph::dijkstra(int s) {
 // ----------------------------------------------------------
 // TODO
 bool Graph::hasEdge(int a, int b) {
+    for (auto edge : nodes[a].adj) {
+        if (edge.dest == b) {
+            return true;
+        }
+    }
     return false;
 }
 
@@ -90,7 +95,21 @@ bool Graph::hasEdge(int a, int b) {
 // ----------------------------------------------------------
 // TODO
 vector<int> Graph::degreeDistribution() {
-    vector<int> ans;
+    vector<int> ans(n,0);
+    for(auto node: nodes){
+        ans[node.adj.size()] +=1;
+    }
+    int i =1;
+    for(auto it = ans.begin(); it != ans.end();it++){
+        if(i==1){
+            i = 0;
+        }else{
+            if(*it == 0){
+                it = --ans.erase(it);
+            }
+        }
+
+    }
     return ans;
 }
 
@@ -99,7 +118,8 @@ vector<int> Graph::degreeDistribution() {
 // ----------------------------------------------------------
 // TODO
 bool Graph::sameComponent(int a, int b) {
-    return false;
+    bfs(a);
+    return nodes[b].visited;
 }
 
 // ----------------------------------------------------------
