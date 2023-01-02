@@ -1,6 +1,4 @@
-#include "cute.h"
-#include "ide_listener.h"
-#include "cute_runner.h"
+
 #include <cstdlib>
 #include <iostream>
 #include <queue>
@@ -14,7 +12,13 @@
 using namespace std;
 
 CGrupo grupo1;
-
+template <class T>
+void ASSERT_EQUAL(T t1, T t2) {
+    if (t1 == t2)
+        cout << "OK ";
+    else
+        cout << "FAIL ";
+}
 void test_1a() {
     vector<CKart> kartsOrdenados = grupo1.ordenaKarts();
     ASSERT_EQUAL(kartsOrdenados.size(), 2500);

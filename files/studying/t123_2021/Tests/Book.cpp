@@ -66,3 +66,11 @@ bool BookCatalogItem::operator<(const BookCatalogItem &bci1) const {
     }
     return this->getTitle() < bci1.getTitle();
 }
+/*
+ * if(b1->getYear() > b2->getYear()){
+        return true;
+    }
+    if(b1->getYear() < b2->getYear()){
+        return false;
+    }
+    return b1->getTitle() < b2->getTitle();*/

@@ -19,13 +19,7 @@ BST<BookCatalogItem> Bookstore::getCatalog() const {
 //TODO:
 
 bool cmpBooks(Book* &b1, Book* &b2){
-    if(b1->getYear() > b2->getYear()){
-        return true;
-    }
-    if(b1->getYear() < b2->getYear()){
-        return false;
-    }
-    return b1->getTitle() < b2->getTitle();
+
     
 }
 vector<Book *> Bookstore::getBooksBy(string a) const {
