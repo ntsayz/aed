@@ -24,6 +24,7 @@ class Graph {
         list<Edge> adj; // The list of outgoing edges (to adjacent nodes)
         int dist;       // Node distance from source node
         bool visited;   // Has the node been visited?
+        int color;
     };
 
     int n;              // Graph size (vertices are numbered from 1 to n)
@@ -49,6 +50,8 @@ public:
     int meetingPoint(int a, int b);
     int secondBestMST();
     list<int> traffic(int a, int b);
+
+    int bfs_meeting_point(int a, int b);
 };
 
 #endif

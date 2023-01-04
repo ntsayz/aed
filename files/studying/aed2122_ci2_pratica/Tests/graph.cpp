@@ -95,20 +95,17 @@ bool Graph::hasEdge(int a, int b) {
 // ----------------------------------------------------------
 // TODO
 vector<int> Graph::degreeDistribution() {
-    vector<int> ans(n,0);
-    for(auto node: nodes){
-        ans[node.adj.size()] +=1;
-    }
-    int i =1;
-    for(auto it = ans.begin(); it != ans.end();it++){
-        if(i==1){
-            i = 0;
-        }else{
-            if(*it == 0){
-                it = --ans.erase(it);
-            }
+    vector<int> ans;
+    bool first = true;
+    for (const auto& node : nodes) {
+        if (first) {
+            first = false;
+            continue;
         }
-
+        size_t degree = node.adj.size();
+        if (ans.capacity() < degree + 1)
+            ans.resize(degree + 1, 0);
+        ans[degree]++;
     }
     return ans;
 }
@@ -127,7 +124,53 @@ bool Graph::sameComponent(int a, int b) {
 // ----------------------------------------------------------
 // TODO
 int Graph::eccentricity(int a) {
-    return 0;
+    if(nodes[a].adj.empty()) return -1;
+
+    // Initialize the maximum distance from node a to any other node
+    int maxDist = 0;
+
+    // Perform Dijkstra's algorithm starting from node a
+    dijkstra(a);
+
+    // Find the maximum distance from node a to any other node
+    for (int i = 1; i <= n; i++) {
+        // Ignore nodes that are not reachable from node a
+        if (nodes[i-1].dist == INT_MAX) {
+            continue;
+        }
+        maxDist = max(maxDist, nodes[i-1].dist);
+    }
+
+    // Return -1 if there are unreachable nodes
+    return maxDist == INT_MAX ? -1 : maxDist;
+
+}
+int Graph::bfs_meeting_point(int a, int b) {
+    for (int v=1; v<=n; v++) {nodes[v].visited = false; nodes[v].dist = -1; nodes[v].color = 0;}
+    queue<int> q; // queue of unvisited nodes
+    q.push(a);
+    nodes[a].visited = true;
+    nodes[a].color = 1;
+    q.push(b);
+    nodes[b].visited = true;
+    nodes[b].color = 2;
+    while (!q.empty()) { // while there are still unvisited nodes
+        int u = q.front(); q.pop();
+        cout << u << " "; // show node order
+        for (auto e : nodes[u].adj) {
+            int w = e.dest;
+            if ((nodes[w].color == 1 && nodes[u].color == 2) || (nodes[w].color == 2 && nodes[u].color == 1)) {
+                return w;
+            }
+            if (!nodes[w].visited) {
+                q.push(w);
+                nodes[w].visited = true;
+                nodes[w].color = nodes[u].color;
+            }
+        }
+    }
+    cout << endl;
+    return -1;
 }
 
 // ----------------------------------------------------------
@@ -135,7 +178,7 @@ int Graph::eccentricity(int a) {
 // ----------------------------------------------------------
 // TODO
 int Graph::meetingPoint(int a, int b) {
-    return 0;
+    return bfs_meeting_point(a, b);
 }
 
 // ----------------------------------------------------------
