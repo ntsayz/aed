@@ -178,7 +178,22 @@ int Graph::bfs_meeting_point(int a, int b) {
 // ----------------------------------------------------------
 // TODO
 int Graph::meetingPoint(int a, int b) {
-    return bfs_meeting_point(a, b);
+    int index;
+    bfs(a);
+    int distance = nodes[b].dist;
+    if (distance == -1) return -1;
+
+    for (int i = 1; i < nodes.size(); i++) {
+        if (i != a && i != b) {
+            bfs(i);
+            int custo = max(nodes[a].dist, nodes[b].dist);
+            if (custo < distance) {
+                distance = custo;
+                index = i;
+            }
+        }
+    }
+    return index;
 }
 
 // ----------------------------------------------------------
